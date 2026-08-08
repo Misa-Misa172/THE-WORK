@@ -46,9 +46,7 @@
 
     .sidebar button {
         
-        width: 82px;
-        height: 30px;
-        font-size: 12px;
+        
     }
 
     .main-content {
@@ -67,6 +65,17 @@
         width: 20%;
         height: 100%;
     }
+
+    .button {
+        width: 82px;
+        height: 30px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-self: space-evenly;
+        gap: 5px;
+    }
     /* Add your CSS styles here*/
 </style>
 <body>
@@ -76,18 +85,20 @@
     <div class="content">
     <div class="sidebar">Side Bar
         <h3> <i>Sort by</i></h3>
-        
-        <button>Lowest Price</button>
-    
-        <button>Highest Price</button>
-        
-        <button>Popularity</button>
-        
-        <button>Z-A</button>
-        <button>A-Z</button>
+
+
+        <div class="button">
+            <button>Lowest Price</button>
+            <button>Highest Price</button>
+            <button>Popularity</button>
+            <button>Z-A</button>
+            <button>A-Z</button>
+
+        </div>
     </div>
     <br>
     <div class="filterbar">Filter</div>
+    
     </div>
     <br>
     <br>
