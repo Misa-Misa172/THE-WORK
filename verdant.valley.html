@@ -30,11 +30,25 @@
 
     .filterbar {
         background-color: #C3DFe3;  
+        height: 400px;
         
     }   
 
-    .sort-bar {
+    .sidebar {
         background-color: #C3DFe3;
+        grid-row: 1 / 3;
+        height:300px
+    }
+
+    .sidebar h3{
+        margin: 0 0 10px 0;
+    }
+
+    .sidebar button {
+        
+        width: 82px;
+        height: 30px;
+        font-size: 12px;
     }
 
     .main-content {
@@ -44,16 +58,42 @@
         grid-template-columns: 120px 1fr;
         grid-template-rows: 155px auto;
     }
+
+
+
+
+    .content{
+        border: 4px solid #d47024;
+        width: 20%;
+        height: 100%;
+    }
     /* Add your CSS styles here*/
 </style>
 <body>
     <div class="header">Info Bar</div>
     <br>
-    <div class="sort-bar">Sort Bar</div>
+
+    <div class="content">
+    <div class="sidebar">Side Bar
+        <h3> <i>Sort by</i></h3>
+        
+        <button>Lowest Price</button>
+    
+        <button>Highest Price</button>
+        
+        <button>Popularity</button>
+        
+        <button>Z-A</button>
+        <button>A-Z</button>
+    </div>
     <br>
     <div class="filterbar">Filter</div>
+    </div>
+    <br>
+    <br>
 
     <div class="main-content">Main Content</div>
+
 
     <script>
         // Add your JavaScript code here
