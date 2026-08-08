@@ -40,14 +40,9 @@
         height:300px
     }
 
-    .sidebar h3{
-        margin: 0 0 10px 0;
-    }
+   
 
-    .sidebar button {
-        
-        
-    }
+    
 
     .main-content {
         background-color: #C3DFe3;
@@ -76,12 +71,33 @@
         align-self: space-evenly;
         gap: 5px;
     }
+
+    .checkboxes{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .imageandlogo{
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        border: 1px solid yellow;
+        height: 100%;
+        width: 80%;
+    }
+
+    .topsection{
+        display: grid;
+         grid-template-columns: 120px 1fr ;
+         
+    }
     /* Add your CSS styles here*/
 </style>
 <body>
     <div class="header">Info Bar</div>
     <br>
-
+<div class="topsection"
     <div class="content">
     <div class="sidebar">Side Bar
         <h3> <i>Sort by</i></h3>
@@ -97,11 +113,32 @@
         </div>
     </div>
     <br>
-    <div class="filterbar">Filter</div>
+    <div class="filterbar">Filter
+        <span>Category</span>
+        <div class="checkboxes">
+            <div> Category1
+            <input type="checkbox" id="category1" class="category1" value="category1">
+            </div>
+
+            <div>Category2
+            <input type="checkbox" id="category2" name="category2" value="category2">
+            </div>
+
+            <div>Category3
+            <input type="checkbox" id="category3" name="category3" value="category3">
+            </div>
+           
+        </div>
+        <br>
+    </div>
     
     </div>
     <br>
     <br>
+
+    <div class="imageandlogo">Image</div>
+
+</div>
 
     <div class="main-content">Main Content</div>
 
