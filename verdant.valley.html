@@ -160,10 +160,94 @@
 
 
 <script>
-    // Add your JavaScript code here
+
+const itemsContainer = document.querySelector(".items");
+const items = Array.from(document.querySelectorAll(".item"));
+
+
+
+document.getElementById("sortaz").addEventListener("click", function() {
+
+    items.sort(function(a, b) {
+
+        let nameA = a.querySelector("p").textContent;
+        let nameB = b.querySelector("p").textContent;
+
+        return nameA.localeCompare(nameB);
+
+    });
+
+    items.forEach(function(item) {
+        itemsContainer.appendChild(item);
+    });
+
+});
+
+
+
+document.getElementById("selectza").addEventListener("click", function() {
+
+    items.sort(function(a, b) {
+
+        let nameA = a.querySelector("p").textContent;
+        let nameB = b.querySelector("p").textContent;
+
+        return nameB.localeCompare(nameA);
+
+    });
+
+    items.forEach(function(item) {
+        itemsContainer.appendChild(item);
+    });
+
+});
+
+
+
+document.getElementById("sortLow").onclick = function() {
+
+    items.sort(function(a, b) {
+
+        let priceA = parseFloat(
+            a.querySelectorAll("p")[4].textContent.replace("$", "")
+        );
+
+        let priceB = parseFloat(
+            b.querySelectorAll("p")[4].textContent.replace("$", "")
+        );
+
+        return priceA - priceB;
+    });
+
+    items.forEach(function(item) {
+        itemsContainer.appendChild(item);
+    });
+
+};
+
+
+
+document.getElementById("sortHigh").onclick = function() {
+
+    items.sort(function(a, b) {
+
+        let priceA = parseFloat(
+            a.querySelectorAll("p")[4].textContent.replace("$", "")
+        );
+
+        let priceB = parseFloat(
+            b.querySelectorAll("p")[4].textContent.replace("$", "")
+        );
+
+        return priceB - priceA;
+    });
+
+    items.forEach(function(item) {
+        itemsContainer.appendChild(item);
+    });
+
+};
+
 </script>
-    <script>
-        // Add your JavaScript code here
-    </script>
 </body>
 </html>
