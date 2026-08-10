@@ -92,6 +92,13 @@
         border: 2px solid green;
         height: 500px;
     }
+
+
+    .filter-content{
+        display: flex;
+        flex-direction: column;
+
+    }
 </style>
 <body>
     <div class="header">Info Bar</div>
@@ -138,36 +145,14 @@
                     <input type="checkbox" id="category3">
                 </div>
             </div>
-        </div>
-
-    </div>
-
-
-    
-    <div class="rightside">
-
-        <div class="imageandlogo">
-            Image and Logo
-        </div>
-
-        <div class="main-content">
-            Main Content
-        </div>
-
-    </div>
-
-</div>
-
-
 
             
-
                     <details class="filter-tab"> <!-- Renamed filterbar to filter-tab because i need to figure out how to up checkboxes inside checkboxes for the next section-->
                                 <summary>Gender</summary>
                         <div class="filter-content">
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Men's"> Men's</label>
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Women's"> Women's</label>
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Unisex"> Unisex</label>
+                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Men's"> Men's</label>
+                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Women's"> Women's</label>
+                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Unisex"> Unisex</label>
                         </div>
                     </details>
 
@@ -216,6 +201,30 @@
                          <div class="filter-content">
 
                         </div>
+        </div>
+
+    </div>
+
+
+    
+    <div class="rightside">
+
+        <div class="imageandlogo">
+            Image and Logo
+        </div>
+
+        <div class="main-content">
+            Main Content
+        </div>
+
+    </div>
+
+</div>
+
+
+
+            
+
 
 
 <script>
