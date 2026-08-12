@@ -286,12 +286,14 @@
         <div class="main-content">
 
             <div class="inside">
-             <div class="item">
+             <div class="item" data-season="Winter">
             <img src="">
-            <p>As</p>
-            <p>Color</p>
-            <p>Category</p>
-            <p>Gender</p>
+            <p>Gloves</p>
+            <p>Blue</p>
+            <p>Armwear</p>
+            <p>Christmas</p>
+            <p>Winter</p>
+            <p>Unisex</p>
             <p>$4</p>
         </div>
 
@@ -335,6 +337,7 @@
             <img src="">
             <p>Mnae</p>
             <p>Color</p>
+            <p>Season</p>
             <p>Category</p>
             <p>Gender</p>
             <p>$8</p>
@@ -437,7 +440,7 @@ document.getElementById("sortza").addEventListener("click", function() {
 
 
 document.getElementById("sortlow").addEventListener("click", function () {
-    const items = Array.from(products.querySelectorAll(".item"));
+    const items = Array.from(inside.querySelectorAll(".item"));
 
     items.sort(function (a, b) {
         const priceA = parseFloat(
@@ -451,12 +454,14 @@ document.getElementById("sortlow").addEventListener("click", function () {
         return priceA - priceB;
     });
 
-    items.forEach(item => products.appendChild(item));
+    items.forEach(item => inside.appendChild(item));
 });
+
+const inside = document.querySelector(".inside")
 
 
 document.getElementById("sortHigh").addEventListener("click", function () {
-    const items = Array.from(products.querySelectorAll(".item"));
+    const items = Array.from(inside.querySelectorAll(".item"));
 
     items.sort(function (a, b) {
         const priceA = parseFloat(
@@ -470,9 +475,16 @@ document.getElementById("sortHigh").addEventListener("click", function () {
         return priceB - priceA;
     });
 
-    items.forEach(item => products.appendChild(item));
+    items.forEach(item => inside.appendChild(item));
 });
 
+
+const winterButton = document.getElementById("winter")
+
+winterButton.addEventListener("click", function(){
+
+    const items =document.querySelector(".item")
+})
   
 
 </script>
