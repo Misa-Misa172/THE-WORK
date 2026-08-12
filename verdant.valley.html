@@ -133,6 +133,7 @@
 
     .ilautumn{
         display: none;
+        background-image: url(images/fall\ background.png);
     }
 </style>
 <body>
@@ -470,15 +471,67 @@ document.getElementById("sortHigh").addEventListener("click", function () {
 });
 
 
-function changeseason(season) {
+document.getElementById("All-Year-Round").addEventListener("click", function(){
 
-   document.querySelector(".ilallyear").style.display = "none";
+
+
+   document.querySelector(".ilallyear").style.display = "flex";
     document.querySelector(".ilsummer").style.display = "none";
     document.querySelector(".ilwinter").style.display = "none";
     document.querySelector(".ilautumn").style.display = "none";
     document.querySelector(".ilspring").style.display = "none";
 
+});
 
+
+document.getElementById("winter").addEventListener("click", function(){
+
+
+
+   document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "flex";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+});
+
+
+document.getElementById("spring").addEventListener("click", function(){
+
+
+
+   document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "flex";
+
+});
+
+document.getElementById("Autumn").addEventListener("click", function(){
+
+
+
+   document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "flex";
+    document.querySelector(".ilspring").style.display = "none";
+
+});
+
+document.getElementById("summer").addEventListener("click", function(){
+
+
+
+   document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "flex";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+});
     if (season==="winter"){
         document.querySelector(".ilwinter").style.display = "flex";
     }
@@ -494,29 +547,15 @@ function changeseason(season) {
     if (season==="autumn"){
         document.querySelector(".ilautumn").style.display = "flex";
     }
-}
+
+    if (season==="allyear"){
+        document.querySelector("ilallyear").style.display = "flex";
+    }
+
+
   
 
-document.getElementById("winter").addEventListener("click", function(){
-    changeseason("winter");
-});
 
-
-document.getElementById("summer").addEventListener("click", function(){
-    changeseason("spring");
-});
-
-document.getElementById("spring").addEventListener("click", function(){
-    changeseason("spring");
-});
-
-document.getElementById("Autumn").addEventListener("click", function(){
-    changeseason("autumn");
-});
-
-document.getElementById("All-Year-Round").addEventListener("click", function(){
-    changeseason("all");
-});
 </script>
 </body>
 </html>
