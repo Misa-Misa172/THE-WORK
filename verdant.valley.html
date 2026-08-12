@@ -14,7 +14,7 @@
     }
     .header {
         height: 70px;
-        background-color: #C3DFe3;
+        background-color: #fff4ff;
         border: 1px solid #000000;
 
         display: flex;  
@@ -42,13 +42,13 @@
     }
 
     .sidebar {
-        background-color: #C3DFe3;
+        background-color: #eefafc;
         height:300px;
         border: 1px solid #000000;
     }
 
     .filterbar {
-        background-color: #C3DFe3;  
+        background-color: #eefafc;  
         height: 400px;
         
     } 
@@ -77,6 +77,7 @@
         border: 1px solid yellow;
         height: 200px;
         background-image:url(images/All-year-background.jpg);
+        font-size: 100px;
         
         
     }
@@ -88,20 +89,53 @@
     }
 
     .main-content{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         border: 2px solid green;
         height: 500px;
         background-image: url(images/main-content-all-year.jpg);
         background-size:cover;
+        display: flex;
+        justify-content: center;
+        
     }
+
+    .inside{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        
+    }
+
+   
 
 
     .filter-content{
         display: flex;
         flex-direction: column;
 
+    }
+
+    .ilallyear{
+        display: block;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ilsummer {
+        display: none;
+    }
+
+    .ilwinter {
+        display: none;
+    }
+
+    .ilspring{
+        display: none;
+    }
+
+    .ilautumn{
+        display: none;
     }
 </style>
 <body>
@@ -120,11 +154,11 @@
             </h3>
 
             <div class="button">
-                <button>Lowest Price</button>
-                <button>Highest Price</button>
-                <button>Popularity</button>
-                <button>Z-A</button>
-                <button>A-Z</button>
+                <button id="sortlow">Lowest Price</button>
+                <button id="sortHigh">Highest Price</button>
+                
+                <button id="sortaz">Z-A</button>
+                <button id="sortza">A-Z</button>
             </div>
         </div>
 
@@ -224,13 +258,124 @@
     
     <div class="rightside">
 
-        <div class="imageandlogo">
+        <div class="imageandlogo ilallyear">
             All-Year-Round
             
         </div>
 
+        <div class="imageandlogo ilsummer">
+            Summer
+            
+        </div>
+
+        <div class="imageandlogo ilwinter">
+           Winter
+            
+        </div>
+
+        <div class="imageandlogo ilautumn">
+            Autumn
+            
+        </div>
+
+        <div class="imageandlogo ilspring">
+            Spring
+            
+        </div>
+
         <div class="main-content">
-            Main Content
+
+            <div class="inside">
+             <div class="item">
+            <img src="">
+            <p>As</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$4</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>ssecory Name</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$2</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Name</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$1</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Assecory</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$3</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Assecor</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$10</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Mnae</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$8</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>kk</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$9</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Assecory Name</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$8</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Assecory Name</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$3</p>
+        </div>
+
+         <div class="item">
+            <img src="">
+            <p>Assecory Name</p>
+            <p>Color</p>
+            <p>Category</p>
+            <p>Gender</p>
+            <p>$5</p>
+        </div>
+        </div>
         </div>
 
     </div>
@@ -245,7 +390,7 @@
 
 <script>
 
-const itemsContainer = document.querySelector(".items");
+const itemsContainer = document.querySelector(".inside");
 const items = Array.from(document.querySelectorAll(".item"));
 
 
@@ -269,7 +414,7 @@ document.getElementById("sortaz").addEventListener("click", function() {
 
 
 
-document.getElementById("selectza").addEventListener("click", function() {
+document.getElementById("sortza").addEventListener("click", function() {
 
     items.sort(function(a, b) {
 
@@ -288,49 +433,47 @@ document.getElementById("selectza").addEventListener("click", function() {
 
 
 
-document.getElementById("sortLow").onclick = function() {
 
-    items.sort(function(a, b) {
 
-        let priceA = parseFloat(
-            a.querySelectorAll("p")[4].textContent.replace("$", "")
+
+document.getElementById("sortlow").addEventListener("click", function () {
+    const items = Array.from(products.querySelectorAll(".item"));
+
+    items.sort(function (a, b) {
+        const priceA = parseFloat(
+            a.querySelector("p:last-child").textContent.replace("$", "")
         );
 
-        let priceB = parseFloat(
-            b.querySelectorAll("p")[4].textContent.replace("$", "")
+        const priceB = parseFloat(
+            b.querySelector("p:last-child").textContent.replace("$", "")
         );
 
         return priceA - priceB;
     });
 
-    items.forEach(function(item) {
-        itemsContainer.appendChild(item);
-    });
-
-};
+    items.forEach(item => products.appendChild(item));
+});
 
 
+document.getElementById("sortHigh").addEventListener("click", function () {
+    const items = Array.from(products.querySelectorAll(".item"));
 
-document.getElementById("sortHigh").onclick = function() {
-
-    items.sort(function(a, b) {
-
-        let priceA = parseFloat(
-            a.querySelectorAll("p")[4].textContent.replace("$", "")
+    items.sort(function (a, b) {
+        const priceA = parseFloat(
+            a.querySelector("p:last-child").textContent.replace("$", "")
         );
 
-        let priceB = parseFloat(
-            b.querySelectorAll("p")[4].textContent.replace("$", "")
+        const priceB = parseFloat(
+            b.querySelector("p:last-child").textContent.replace("$", "")
         );
 
         return priceB - priceA;
     });
 
-    items.forEach(function(item) {
-        itemsContainer.appendChild(item);
-    });
+    items.forEach(item => products.appendChild(item));
+});
 
-};
+  
 
 </script>
 </body>
