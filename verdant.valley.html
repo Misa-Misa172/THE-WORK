@@ -475,7 +475,7 @@ document.getElementById("sortHigh").addEventListener("click", function () {
 
 function changeseason(season) {
 
-   document.querySelector(".ilallyear").style.display = "block";
+   document.querySelector(".ilallyear").style.display = "none";
     document.querySelector(".ilsummer").style.display = "none";
     document.querySelector(".ilwinter").style.display = "none";
     document.querySelector(".ilautumn").style.display = "none";
@@ -500,8 +500,26 @@ function changeseason(season) {
 }
   
 
+document.getElementById("winter").addEventListener("click", function(){
+    changeseason("winter");
+});
 
 
+document.getElementById("summer").addEventListener("click", function(){
+    changeseason("spring");
+});
+
+document.getElementById("spring").addEventListener("click", function(){
+    changeseason("spring");
+});
+
+document.getElementById("Autumn").addEventListener("click", function(){
+    changeseason("autumn");
+});
+
+document.getElementById("All-Year-Round").addEventListener("click", function(){
+    changeseason("all");
+});
 </script>
 </body>
 </html>
