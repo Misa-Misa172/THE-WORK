@@ -473,8 +473,34 @@ document.getElementById("sortHigh").addEventListener("click", function () {
 });
 
 
+function changeseason(season) {
 
+   document.querySelector(".ilallyear").style.display = "block";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+
+    if (season==="winter"){
+        document.querySelector(".ilwinter").style.display = "flex";
+    }
+
+    if (season==="summer"){
+        document.querySelector(".ilsummer").style.display = "flex";
+    }
+
+    if (season==="spring"){
+        document.querySelector(".ilspring").style.display = "flex";
+    }
+
+    if (season==="autumn"){
+        document.querySelector(".ilautumn").style.display = "flex";
+    }
+}
   
+
+
 
 </script>
 </body>
