@@ -126,7 +126,7 @@
 
     .ilwinter {
         display: none;
-        background-image: url(images/winter\ background.jpg);
+        background-image: url(images/wint-back.jpg);
     }
 
     .ilspring{
@@ -143,9 +143,27 @@
 
 
 
-    body.ilwinter {
+    body.winter {
         background-color: #afc7d6;
     }
+
+    body.winter .header{
+        background-color: #6D9CBF;
+    }
+
+    body.winter .sidebar,
+    body.winter .filterbar {
+    background-color: #eaf9ff;
+    }
+
+    body.winter .main-content {
+    background-image: url(images/mc-wint.jpg);
+    }
+
+    body.winter .imageandlogo {
+    background-color: #dff5ff;
+    }
+
 </style>
 <body>
     <div class="header">Info Bar</div>
@@ -497,7 +515,7 @@ document.getElementById("All-Year-Round").addEventListener("click", function(){
 
 document.getElementById("winter").addEventListener("click", function(){
 
-
+    document.body.className = "winter";
 
    document.querySelector(".ilallyear").style.display = "none";
     document.querySelector(".ilsummer").style.display = "none";
