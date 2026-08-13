@@ -121,7 +121,7 @@
 
     .ilsummer {
         display: none;
-        background-image: url(images/summer\ background.jpg);
+        background-image: url(images/il-summer.jpg);
     }
 
     .ilwinter {
@@ -189,6 +189,37 @@
         to{
             top: 100vh;
         }
+    }
+
+
+    body.summer {
+        background-color: #6BB5A6;
+    }
+
+    
+    body.summer .header{
+        background-color: #6D9CBF;
+    }
+
+    body.summer .sidebar,
+    body.summer .filterbar {
+    background-color: #9bC870;
+    }
+
+    body.summer .main-content {
+    background-image: url(images/mc-summer.png);
+    }
+
+    body.summer .imageandlogo {
+    background-color: #d8edbe;
+    }
+
+    body.summer button{
+        background-color: #CAD7A5;
+    }
+
+    body.summer input[type="button"]{
+        background-color: #CAD7A5;
     }
 
 </style>
@@ -550,7 +581,7 @@ document.getElementById("winter").addEventListener("click", function(){
     document.querySelector(".ilautumn").style.display = "none";
     document.querySelector(".ilspring").style.display = "none";
 
-    setInterval(makeSnowflake, 500);
+    startsnow();
 
 });
 
@@ -581,13 +612,18 @@ document.getElementById("Autumn").addEventListener("click", function(){
 
 document.getElementById("summer").addEventListener("click", function(){
 
-
+    document.body.className = "summer";
+    
 
    document.querySelector(".ilallyear").style.display = "none";
     document.querySelector(".ilsummer").style.display = "flex";
     document.querySelector(".ilwinter").style.display = "none";
     document.querySelector(".ilautumn").style.display = "none";
     document.querySelector(".ilspring").style.display = "none";
+
+    stopsnow();
+
+    
 
 });
     if (season==="winter"){
@@ -611,22 +647,36 @@ document.getElementById("summer").addEventListener("click", function(){
     }
 
 
-  
-    function makeSnowflake() {
+  function makeSnowflake() {
     let snow = document.createElement("img");
 
     snow.src = "images/Snow.png";
     snow.className = "snowflake";
 
     snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = (3 + Math.random() * 4) + "s";
 
     document.body.appendChild(snow);
 
     setTimeout(function() {
         snow.remove();
-    }, 5000);
+    }, 7000);
 }
 
+function startsnow() {
+    stopsnow();
+
+    snowInterval = setInterval(makeSnowflake, 500);
+}
+
+function stopsnow() {
+    clearInterval(snowInterval);
+    snowInterval = null;
+
+    document.querySelectorAll(".snowflake").forEach(function(snow) {
+        snow.remove();
+    });
+}
 
 </script>
 </body>
