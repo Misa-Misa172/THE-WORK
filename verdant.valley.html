@@ -172,7 +172,24 @@
         background-color: #a5d3f0;
     }
 
-    
+    .snowflake {
+        position:fixed;
+        top: -50px;
+        width: 30px;
+        z-index: 9999;
+        pointer-events: none;
+        animation: fall 5s linear;
+    }
+
+    @keyframes fall {
+        from{
+            top: -50px;
+        }
+
+        to{
+            top: 100vh;
+        }
+    }
 
 </style>
 <body>
@@ -533,6 +550,8 @@ document.getElementById("winter").addEventListener("click", function(){
     document.querySelector(".ilautumn").style.display = "none";
     document.querySelector(".ilspring").style.display = "none";
 
+    setInterval(makeSnowflake, 500);
+
 });
 
 
@@ -593,6 +612,20 @@ document.getElementById("summer").addEventListener("click", function(){
 
 
   
+    function makeSnowflake() {
+    let snow = document.createElement("img");
+
+    snow.src = "images/Snowflake blue.jpe";
+    snow.className = "snowflake";
+
+    snow.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(snow);
+
+    setTimeout(function() {
+        snow.remove();
+    }, 5000);
+}
 
 
 </script>
