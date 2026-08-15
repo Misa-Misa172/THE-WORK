@@ -109,6 +109,12 @@
         
     }
 
+    .descrip{
+        display: grid;
+        grid-template-columns: repeat(2, 65px);
+        grid-template-rows: repeat(2, 35px);
+    }
+
    
 
 
@@ -453,8 +459,9 @@
         <div class="main-content">
 
             <div class="inside">
-             <div class="item" data-season="Winter" data-gender="Men's" data-colour="black">
-            <img src="">
+             <label class="item" data-season="Winter" data-gender="Men's" data-color="Black">
+            <img src="images/chris-black-fem.jpg" width="100px" height="auto">
+                <div class="descrip">
             <p>Gloves</p>
             <p>Black</p>
             <p>Armwear</p>
@@ -462,9 +469,10 @@
             <p>Winter</p>
             <p>Men's</p>
             <p>$4</p>
-        </div>
+            </div>
+             </label>
 
-         <div class="item"  data-gender="Unisex" data-colour="purple">
+         <div class="item"  data-gender="Unisex" data-color="Purple">
             <img src="">
             <p>ssecory Name</p>
             <p>Color</p>
@@ -473,7 +481,7 @@
             <p>$2</p>
         </div>
 
-         <div class="item"  data-gender="Men's" data-colour="blue">
+         <div class="item"  data-gender="Men's" data-color="Blue">
             <img src="">
             <p>Name</p>
             <p>Color</p>
@@ -482,7 +490,7 @@
             <p>$1</p>
         </div>
 
-         <div class="item"  data-gender="Men's" data-colour="green">
+         <div class="item"  data-gender="Men's" data-color="Green">
             <img src="">
             <p>Assecory</p>
             <p>Color</p>
@@ -491,7 +499,7 @@
             <p>$3</p>
         </div>
 
-         <div class="item"  data-gender="Men's" data-colour="yellow">
+         <div class="item"  data-gender="Men's" data-color="Yellow">
             <img src="">
             <p>Assecor</p>
             <p>Color</p>
@@ -500,7 +508,7 @@
             <p>$10</p>
         </div>
 
-         <div class="item"  data-gender="Women's" data-colour="orange">
+         <div class="item"  data-gender="Women's" data-color="Orange">
             <img src="">
             <p>Mnae</p>
             <p>Color</p>
@@ -510,7 +518,7 @@
             <p>$8</p>
         </div>
 
-         <div class="item"  data-gender="Unisex" data-colour="black">
+         <div class="item"  data-gender="Unisex" data-color="Black">
             <img src="">
             <p>kk</p>
             <p>Color</p>
@@ -519,7 +527,7 @@
             <p>$9</p>
         </div>
 
-         <div class="item"  data-gender="Women's" data-colour="black">
+         <div class="item"  data-gender="Women's" data-color="Black">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
@@ -528,7 +536,7 @@
             <p>$8</p>
         </div>
 
-         <div class="item"  data-gender="Unisex's" data-colour="white">
+         <div class="item"  data-gender="Unisex's" data-color="White">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
@@ -537,7 +545,7 @@
             <p>$3</p>
         </div>
 
-         <div class="item"  data-gender="Women's" data-colour="black">
+         <div class="item"  data-gender="Women's" data-color="Black">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
@@ -748,14 +756,14 @@ genderSort.forEach(function(filter){
 
 
 const colourSort = document.querySelectorAll(
-    'input[data-group="colour"]'
+    'input[data-group="color"]'
 )
 
 colourSort.forEach(function(filter){
 
     filter.addEventListener("change", function(){
-        const selectedColours = Array.from(
-            document.querySelectorAll('input[data-group="colour"]:checked')
+        const selectedColors = Array.from(
+            document.querySelectorAll('input[data-group="color"]:checked')
         ).map (function(checkbox){
             return checkbox.value; 
         });
@@ -765,12 +773,12 @@ colourSort.forEach(function(filter){
 
         products.forEach(function(product) {
 
-            const productGender = product.dataset.colour;
+            const productColor = product.dataset.color;
 
-            if (selectedColours.length === 0) {
+            if (selectedColors.length === 0) {
                 product.style.display = "block";
             }
-            else if (selectedColours.includes(productGender)) {
+            else if (selectedColors.includes(productColor)) {
                 product.style.display = "block";
             }
             else {
