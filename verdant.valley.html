@@ -234,6 +234,36 @@
         background-color: #AA5115;
     }
 
+    
+    body.spring {
+        background-color: #9DB868;
+    }
+
+     body.spring .header{
+        background-color: #F6C6C2;
+    }
+
+    body.spring .sidebar,
+    body.spring .filterbar {
+    background-color: #F7F1C4;
+    }
+
+    body.spring .main-content {
+    background-image: url(images/mc-spring.png);
+    }
+
+    body.spring .imageandlogo {
+    background-color: #F6C6C2;
+    }
+
+    body.spring button{
+        background-color: #F07A72;
+    }
+
+    body.spring input[type="button"]{
+        background-color: #F07A72;
+    }
+
 </style>
 <body>
     <div class="header">Info Bar</div>
@@ -593,14 +623,14 @@ document.getElementById("winter").addEventListener("click", function(){
     document.querySelector(".ilautumn").style.display = "none";
     document.querySelector(".ilspring").style.display = "none";
 
-    startsnow();
+
 
 });
 
 
 document.getElementById("spring").addEventListener("click", function(){
 
-
+    document.body.className = "spring"
 
    document.querySelector(".ilallyear").style.display = "none";
     document.querySelector(".ilsummer").style.display = "none";
