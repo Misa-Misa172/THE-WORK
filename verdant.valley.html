@@ -116,7 +116,7 @@
 
     .ilallyear{
       display: flex;
-      background-image:url(images/All-year-background.jpg);
+      background-image:url(images/il-all.jpg);
     }
 
     .ilsummer {
@@ -263,6 +263,38 @@
     body.spring input[type="button"]{
         background-color: #F07A72;
     }
+
+    
+    body.all {
+        background-color: #FFF8E7;
+    }
+
+     body.all .header{
+        background-color: #A8B89A;
+    }
+
+    body.all .sidebar,
+    body.all .filterbar {
+    background-color: #A8B89A;
+    }
+
+    body.all .main-content {
+    background-image: url(images/mc-all.jpg);
+    }
+
+    body.all .imageandlogo {
+    background-color: #A8B89A;
+    }
+
+    body.all button{
+        background-color: #D8C3A5;
+    }
+
+    body.all input[type="button"]{
+        background-color: #D8C3A5;
+    }
+
+
 
 </style>
 <body>
@@ -602,7 +634,7 @@ document.getElementById("sortHigh").addEventListener("click", function () {
 
 document.getElementById("All-Year-Round").addEventListener("click", function(){
 
-
+    document.body.className = "all"
 
    document.querySelector(".ilallyear").style.display = "flex";
     document.querySelector(".ilsummer").style.display = "none";
