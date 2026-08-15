@@ -172,24 +172,6 @@
         background-color: #a5d3f0;
     }
 
-    .snowflake {
-        position:fixed;
-        top: -50px;
-        width: 30px;
-        z-index: 9999;
-        pointer-events: none;
-        animation: fall 5s linear;
-    }
-
-    @keyframes fall {
-        from{
-            top: -50px;
-        }
-
-        to{
-            top: 100vh;
-        }
-    }
 
 
     body.summer {
@@ -220,6 +202,36 @@
 
     body.summer input[type="button"]{
         background-color: #CAD7A5;
+    }
+
+
+    body.autumn {
+        background-color: #AA5115;
+    }
+
+     body.autumn .header{
+        background-color: #EAA271;
+    }
+
+    body.autumn .sidebar,
+    body.autumn .filterbar {
+    background-color: #F4D2BA;
+    }
+
+    body.autumn .main-content {
+    background-image: url(images/mc-autumn.jpg);
+    }
+
+    body.autumn .imageandlogo {
+    background-color: #F4D2BA;
+    }
+
+    body.autumn button{
+        background-color: #AA5115;
+    }
+
+    body.autumn input[type="button"]{
+        background-color: #AA5115;
     }
 
 </style>
@@ -600,7 +612,7 @@ document.getElementById("spring").addEventListener("click", function(){
 
 document.getElementById("Autumn").addEventListener("click", function(){
 
-
+    document.body.className = "autumn";
 
    document.querySelector(".ilallyear").style.display = "none";
     document.querySelector(".ilsummer").style.display = "none";
@@ -628,36 +640,9 @@ document.getElementById("summer").addEventListener("click", function(){
 });
    
         
-  function makeSnowflake() {
-    let snow = document.createElement("img");
 
-    snow.src = "images/Snow.png";
-    snow.className = "snowflake";
 
-    snow.style.left = Math.random() * 100 + "vw";
-    snow.style.animationDuration = (3 + Math.random() * 4) + "s";
 
-    document.body.appendChild(snow);
-
-    setTimeout(function() {
-        snow.remove();
-    }, 7000);
-}
-
-function startsnow() {
-    stopsnow();
-
-    snowInterval = setInterval(makeSnowflake, 500);
-}
-
-function stopsnow() {
-    clearInterval(snowInterval);
-    snowInterval = null;
-
-    document.querySelectorAll(".snowflake").forEach(function(snow) {
-        snow.remove();
-    });
-}
 
 </script>
 </body>
