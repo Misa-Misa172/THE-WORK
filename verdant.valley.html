@@ -357,9 +357,9 @@
                     <details class="filter-tab"> <!-- Renamed filterbar to filter-tab because i need to figure out how to up checkboxes inside checkboxes for the next section-->
                                 <summary>Gender</summary>
                         <div class="filter-content">
-                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Men's"> Men's</label>
-                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Women's"> Women's</label>
-                            <label class="filter-label"><input type="radio" class="filter" data-group="gender" value="Unisex"> Unisex</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Men's"> Men's</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Women's"> Women's</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="gender" value="Unisex"> Unisex</label>
                         </div>
                     </details>
 
@@ -372,6 +372,10 @@
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Blue"> Blue</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Green"> Green</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Brown"> Brown</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Pink"> Pink</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Orange"> Orange</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Yellow"> Yellow</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="color" value="Purple"> Purple</label>
                         </div>
                     </details>
 
@@ -449,96 +453,96 @@
         <div class="main-content">
 
             <div class="inside">
-             <div class="item" data-season="Winter">
+             <div class="item" data-season="Winter" data-gender="Men's" data-colour="black">
             <img src="">
             <p>Gloves</p>
-            <p>Blue</p>
+            <p>Black</p>
             <p>Armwear</p>
             <p>Christmas</p>
             <p>Winter</p>
-            <p>Unisex</p>
+            <p>Men's</p>
             <p>$4</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Unisex" data-colour="purple">
             <img src="">
             <p>ssecory Name</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Unisex</p>
             <p>$2</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Men's" data-colour="blue">
             <img src="">
             <p>Name</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Men's</p>
             <p>$1</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Men's" data-colour="green">
             <img src="">
             <p>Assecory</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Men's</p>
             <p>$3</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Men's" data-colour="yellow">
             <img src="">
             <p>Assecor</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Men's</p>
             <p>$10</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Women's" data-colour="orange">
             <img src="">
             <p>Mnae</p>
             <p>Color</p>
             <p>Season</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Women's</p>
             <p>$8</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Unisex" data-colour="black">
             <img src="">
             <p>kk</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Unisex</p>
             <p>$9</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Women's" data-colour="black">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Women's</p>
             <p>$8</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Unisex's" data-colour="white">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Unisex</p>
             <p>$3</p>
         </div>
 
-         <div class="item">
+         <div class="item"  data-gender="Women's" data-colour="black">
             <img src="">
             <p>Assecory Name</p>
             <p>Color</p>
             <p>Category</p>
-            <p>Gender</p>
+            <p>Women's</p>
             <p>$5</p>
         </div>
         </div>
@@ -706,6 +710,80 @@ document.getElementById("summer").addEventListener("click", function(){
 });
    
         
+const genderSort = document.querySelectorAll(
+    'input[data-group="gender"]'
+);
+
+genderSort.forEach(function(filter){
+
+    filter.addEventListener("change", function(){
+        const selectedGenders = Array.from(
+            document.querySelectorAll('input[data-group="gender"]:checked')
+        ).map (function(checkbox){
+            return checkbox.value; 
+        });
+    
+    
+        const products = document.querySelectorAll(".item");
+
+        products.forEach(function(product) {
+
+            const productGender = product.dataset.gender;
+
+            if (selectedGenders.length === 0) {
+                product.style.display = "block";
+            }
+            else if (selectedGenders.includes(productGender)) {
+                product.style.display = "block";
+            }
+            else {
+                product.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+
+
+const colourSort = document.querySelectorAll(
+    'input[data-group="colour"]'
+)
+
+colourSort.forEach(function(filter){
+
+    filter.addEventListener("change", function(){
+        const selectedColours = Array.from(
+            document.querySelectorAll('input[data-group="colour"]:checked')
+        ).map (function(checkbox){
+            return checkbox.value; 
+        });
+    
+    
+        const products = document.querySelectorAll(".item");
+
+        products.forEach(function(product) {
+
+            const productGender = product.dataset.colour;
+
+            if (selectedColours.length === 0) {
+                product.style.display = "block";
+            }
+            else if (selectedColours.includes(productGender)) {
+                product.style.display = "block";
+            }
+            else {
+                product.style.display = "none";
+            }
+
+        });
+
+    });
+});
+
+
+    
 
 
 
