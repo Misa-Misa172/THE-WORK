@@ -12,22 +12,29 @@
         background-color: #ffffff;
 
     }
-    .header {
-        height: 70px;
-        background-color: #FFF8E7;
-    
+   .header {
+    height: 70px;
+    background-color: #FFF8E7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 40px;
+    margin: 0;
+    gap: 20px;
+    position: relative;
+}
 
-        display: flex;  
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px;
+    .Ab {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 10px;
 
-        font-size: 14px;
-        margin: 0;
+    position: absolute;
+    right: 20px;
+}
 
-
-
-    }
     .topsection{
         display: grid;
          grid-template-columns: 200px 1fr ;
@@ -312,7 +319,13 @@
 
 </style>
 <body class="all">
-    <div class="header">Info Bar</div>
+    <div class="header">
+    <p>Season4Fashion</p>
+       <div class="Ab">
+        <input type="button"  value="About Us">
+        <input type="button"  value="How To Contact">
+        </div> 
+    </div>
     <br>
 <div class="topsection">
 
