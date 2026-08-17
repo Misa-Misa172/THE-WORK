@@ -322,8 +322,8 @@
     <div class="header">
     <p>Season4Fashion</p>
        <div class="Ab">
-        <input type="button"  value="About Us">
-        <input type="button"  value="How To Contact">
+        <input type="button" id="AboutUs" value="About Us">
+        <input type="button"  id="HoToCo" value="How To Contact">
         </div> 
     </div>
     <br>
@@ -865,9 +865,16 @@ function filterSeason(season) {
     });
 
 }
+
+ document.getElementById('AboutUs').addEventListener('click', function(){
+          window.location.href = 'about.us.html';
+        });
     
 
-
+ document.getElementById('HoToCo').addEventListener('click', function(){
+          window.location.href = 'howtocontact.html';
+        });
+    
 
 
 </script>
