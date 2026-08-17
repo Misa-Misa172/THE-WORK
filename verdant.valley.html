@@ -425,8 +425,6 @@
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Sport"> Sport</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Beach"> Beach</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Easter"> Easter</label>
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Casual"> Casual</label>
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Formal"> Formal</label>
                         </div>
                     </details>
 
@@ -476,7 +474,7 @@
         <div class="main-content">
 
             <div class="inside">
-             <label class="item" data-season="Winter"  data-gender="Women's" data-color="Black">
+             <label class="item" data-season="Winter"  data-gender="Women's" data-color="Black"  data-style="Outdoors" data-event="Christmas">
             <img src="images/chris-black-fem.jpg" width="100px" height="100px">
                 <div class="descrip">
             <p>Gloves</p>
@@ -490,7 +488,7 @@
             </div>
              </label>
 
-         <label class="item"  data-season="Summer"  data-gender="Women's" data-color="Blue">
+         <label class="item"  data-season="Summer"  data-gender="Women's" data-color="Blue" data-style="Outdoors" data-event="Beach">
             <img src="images/blue-sum-hat.jpg" width="100px" height="auto">
             <div class="descrip">
             <p>Hat</p>
@@ -502,7 +500,7 @@
             </div>
          </label>
 
-         <label class="item"   data-season="Winter"   data-gender="Men's" data-color="Black">
+         <label class="item"   data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Streetwear" data-event="Hallowen">
             <img src="images/black-necklace-man.jpg" width="100px" height="auto">
             <div class="descrip">
             <p>Necklace</p>
@@ -515,7 +513,7 @@
             
         </label>
 
-         <label class="item"  data-season="All-year" data-gender="Unisex" data-color="Black">
+         <label class="item"  data-season="All-year" data-gender="Unisex" data-color="Black" data-style="Streetwear" data-event="Hallowen">
             <img src="images/black-unisex.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Hat</p>
@@ -527,7 +525,7 @@
             </div>
         </label>
 
-         <label class="item"  data-gender="All-year" data-color="White">
+         <label class="item"  data-gender="All-year" data-color="White" data-style="Streetwear" data-event="Hallowen">
             <img src="images/white-unisex.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Glove</p>
@@ -539,7 +537,7 @@
             </div>
         </label>
 
-         <label class="item"  data-season="Autumn" data-gender="Women's" data-color="Brown">
+         <label class="item"  data-season="Autumn" data-gender="Women's" data-color="Brown" data-style="Outdoors" data-event="Easter">
             <img src="images/armwarmers.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Arm
@@ -554,7 +552,7 @@
             </div>
          </label>
 
-         <label class="item" data-season="Spring"   data-gender="Women's" data-color="Yellow">
+         <label class="item" data-season="Spring"   data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter">
             <img src="images/flower-crown.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Crown</p>
@@ -566,7 +564,7 @@
             </div>
         </label>
 
-         <label class="item" data-season="Spring"  data-gender="Women's" data-color="Yellow">
+         <label class="item" data-season="Spring"  data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter">
             <img src="images/gold.jpg" width="100px" height="100">
             <div class=" descrip">
             <p>Bracelet</p>
@@ -578,7 +576,7 @@
             </div>
         </label>
 
-         <label class="item" data-season="Winter"   data-gender="Men's" data-color="Black">
+         <label class="item" data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Sport">
             <img src="images/black.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Bandana</p>
@@ -590,7 +588,7 @@
             </div>
         </label>
 
-         <label class="item"  data-season="Winter"  data-gender="Men's" data-color="Black">
+         <label class="item"  data-season="Winter"  data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Out-doors">
             <img src="images/glass-winter.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Glasses</p>
@@ -852,6 +850,43 @@ colourSort.forEach(function(filter){
 
     });
 });
+
+
+const styleSort = document.querySelectorAll(
+    'input[data-group="style"]'
+);
+
+styleSort.forEach(function(filter){
+
+    filter.addEventListener("change", function(){
+        const selectedStyle = Array.from(
+            document.querySelectorAll('input[data-group="style"]:checked')
+        ).map (function(checkbox){
+            return checkbox.value; 
+        });
+    
+    
+        const products = document.querySelectorAll(".item");
+
+        products.forEach(function(product) {
+
+            const productStyle = product.dataset.style;
+
+            if (selectedStyle.length === 0) {
+                product.style.display = "block";
+            }
+            else if (selectedStyle.includes(productStyle)) {
+                product.style.display = "block";
+            }
+            else {
+                product.style.display = "none";
+            }
+
+        });
+
+    });
+});
+
 
 
 const products = document.querySelectorAll(".item");
