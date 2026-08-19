@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season4fashion</title>
+</head>
+<style>
+
+    body{
+        background-image: url(images/summer\ background.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+#thankYouPage {
+    display: block;
+    width: 500px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #FFF8E7;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#thankYouPage h1 {
+    font-size: 35px;
+}
+
+#thankYouPage p {
+    font-size: 18px;
+}
+
+#continueShopping {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #A8B89A;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+</style>
+<body>
+    <div id="thankYouPage">
+
+    <h1>Thank You! 💗</h1>
+
+    <p>Thank you for shopping with us!</p>
+
+    <p>We hope you enjoyed your Season4Fashion experience.</p>
+
+    <button id="continueShopping">Continue Shopping</button>
+
+</div>
+    <script>
+        document.getElementById("continueShopping").addEventListener("click", function() {
+            window.location.href = "verdant.valley.html";
+        });
+
+    </script>
+</body>
+</html>

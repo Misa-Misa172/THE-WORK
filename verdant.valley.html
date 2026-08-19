@@ -316,6 +316,228 @@
     }
 
 
+    #cart {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #D8C3A5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    cursor: grab;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    user-select: none;
+}
+
+#cart:active {
+    cursor: grabbing;
+}
+
+#cartCount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#cartPanel {
+    position: fixed;
+
+    right: 20px;
+    top: 20px;
+
+    width: 300px;
+    height: 500px;
+
+    background-color: #FFF8E7;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+    z-index: 999;
+
+    padding: 20px;
+
+    display: none;
+}
+
+
+#cartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#closeCart {
+    border: none;
+    background: none;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+#cartItems {
+    height: 350px;
+
+    overflow-y: auto;
+
+    margin-top: 10px;
+}
+
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    background-color: #D8C3A5;
+
+    border-radius: 8px;
+}
+
+
+.removeItem {
+    border: none;
+
+    background-color: #AA5115;
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+#cartTotal {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+#finishButton {
+    width: 100%;
+
+    height: 40px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #A8B89A;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+
+body.all #cart {
+    background-color: #A8B89A;
+}
+
+
+body.winter #cart {
+    background-color: #a5d3f0;
+}
+
+body.summer #cart {
+    background-color: #FCDB6D;
+}
+
+
+body.autumn #cart {
+    background-color: #AA5115;
+}
+
+
+body.spring #cart {
+    background-color: #F07A72;
+}
+
+body.all #cartPanel {
+    background-color: #FFF8E7;
+}
+
+body.winter #cartPanel {
+    background-color: #dff5ff;
+}
+
+body.summer #cartPanel {
+    background-color: #FDEB9E;
+}
+
+body.autumn #cartPanel {
+    background-color: #F4D2BA;
+}
+
+body.spring #cartPanel {
+    background-color: #d7f7c4;
+}
+
+#checkoutPage {
+    display: none;
+    width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #FFF8E7;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+#checkoutPage h1 {
+    text-align: center;
+}
+
+#checkoutForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#checkoutForm input {
+    height: 35px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
+
+#checkoutForm button {
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #A8B89A;
+    cursor: pointer;
+    font-size: 16px;
+}
 
 </style>
 <body class="all">
@@ -421,7 +643,7 @@
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Christmas"> Christmas</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Back-to-School"> Back-to-School</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Halloween"> Halloween</label>
-                            <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Out-Doors"> Out-Doors</label>
+                            <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Outdoor"> OutDoors</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Sport"> Sport</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Beach"> Beach</label>
                             <label class="filter-label"><input type="checkbox" class="filter" data-group="event" value="Easter"> Easter</label>
@@ -474,7 +696,7 @@
         <div class="main-content">
 
             <div class="inside">
-             <label class="item" data-season="Winter"  data-gender="Women's" data-color="Black"  data-style="Outdoors" data-event="Christmas" data-assecory="Armwear">
+             <label class="item" data-season="Winter"  data-gender="Women's" data-color="Black"  data-style="Outdoor" data-event="Christmas" data-atype="Armwear">
             <img src="images/chris-black-fem.jpg" width="100px" height="100px">
                 <div class="descrip">
             <p>Gloves</p>
@@ -488,7 +710,7 @@
             </div>
              </label>
 
-         <label class="item"  data-season="Summer"  data-gender="Women's" data-color="Blue" data-style="Outdoors" data-event="Beach" data-assecory="Headwear">
+         <label class="item"  data-season="Summer"  data-gender="Women's" data-color="Blue" data-style="Outdoors" data-event="Beach" data-atype="Headwear">
             <img src="images/blue-sum-hat.jpg" width="100px" height="auto">
             <div class="descrip">
             <p>Hat</p>
@@ -502,7 +724,7 @@
             </div>
          </label>
 
-         <label class="item"   data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Streetwear" data-event="Hallowen" data-assecory="Jewelry">
+         <label class="item"   data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Streetwear" data-event="Halloween" data-atype="Jewelry">
             <img src="images/black-necklace-man.jpg" width="100px" height="auto">
             <div class="descrip">
             <p>Necklace</p>
@@ -517,7 +739,7 @@
             
         </label>
 
-         <label class="item"  data-season="All-year" data-gender="Unisex" data-color="Black" data-style="Streetwear" data-event="Hallowen" data-assecory="Headwear">
+         <label class="item"  data-season="All-year" data-gender="Unisex" data-color="Black" data-style="Streetwear" data-event="Halloween" data-atype="Headwear">
             <img src="images/black-unisex.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Hat</p>
@@ -531,7 +753,7 @@
             </div>
         </label>
 
-         <label class="item"  data-gender="All-year" data-color="White" data-style="Streetwear" data-event="Hallowen" data-assecory="Armwear">
+         <label class="item"  data-gender="All-year" data-color="White" data-style="Streetwear" data-event="Halloween" data-atype="Armwear">
             <img src="images/white-unisex.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Glove</p>
@@ -545,7 +767,7 @@
             </div>
         </label>
 
-         <label class="item"  data-season="Autumn" data-gender="Women's" data-color="Brown" data-style="Outdoors" data-event="Easter" data-assecory="Legwear">
+         <label class="item"  data-season="Autumn" data-gender="Women's" data-color="Brown" data-style="Outdoors" data-event="Easter" data-atype="Legwear">
             <img src="images/armwarmers.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Arm
@@ -561,7 +783,7 @@
             </div>
          </label>
 
-         <label class="item" data-season="Spring"   data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter" data-assecory="Headwear">
+         <label class="item" data-season="Spring"   data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter" data-atype="Headwear">
             <img src="images/flower-crown.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Crown</p>
@@ -575,7 +797,7 @@
             </div>
         </label>
 
-         <label class="item" data-season="Spring"  data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter" data-assecory="Jewelry">
+         <label class="item" data-season="Spring"  data-gender="Women's" data-color="Yellow" data-style="Luxury" data-event="Easter" data-atype="Jewelry">
             <img src="images/gold.jpg" width="100px" height="100">
             <div class=" descrip">
             <p>Bracelet</p>
@@ -589,7 +811,7 @@
             </div>
         </label>
 
-         <label class="item" data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Sport" data-assecory="Headwear">
+         <label class="item" data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Sport" data-atype="Headwear">
             <img src="images/black.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Bandana</p>
@@ -603,7 +825,7 @@
             </div>
         </label>
 
-         <label class="item"  data-season="Winter"  data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Out-doors" data-assecory="Headwear">
+         <label class="item"  data-season="Winter"  data-gender="Men's" data-color="Black" data-style="Vintage" data-event="Outdoor" data-atype="Headwear">
             <img src="images/glass-winter.jpg"  width="100px" height="100px">
             <div class=" descrip">
             <p>Glasses</p>
@@ -615,13 +837,518 @@
             <p>Men's</p>
             <p>$30</p>
             </div>
-        </div>
         </label>
         </div>
 
     </div>
 
 </div>
+</div>
+
+<div id="cart">
+    💸
+    <span id="cartCount">0</span>
+</div>
+
+<div id="cartPanel">
+    <div id="cartHeader">
+        <h2>Your Cart</h2>
+        <button id="closeCart">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div id="cartTotal">
+        Total: $0.00
+    </div>
+
+    <button id="finishButton">Finish</button>
+</div>
+
+<div id="checkoutPage">
+
+    <h1>Checkout</h1>
+    <p>Please fill out your information below.</p>
+
+    <form id="checkoutForm">
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required>
+
+        <h3 id="checkoutTotal">Total: $0.00</h3>
+
+        <button type="submit">Place Order</button>
+
+    </form>
+
+</div>
+
+<script>
+const products = document.querySelectorAll(".item");
+
+let selectedSeason = "All-year";
+
+
+function applyFilters() {
+
+    
+    const selectedGenders = Array.from(
+        document.querySelectorAll('input[data-group="gender"]:checked')
+    ).map(function(checkbox) {
+        return checkbox.value;
+    });
+
+
+   
+    const selectedColors = Array.from(
+        document.querySelectorAll('input[data-group="color"]:checked')
+    ).map(function(checkbox) {
+        return checkbox.value;
+    });
+
+
+    
+    const selectedStyles = Array.from(
+        document.querySelectorAll('input[data-group="style"]:checked')
+    ).map(function(checkbox) {
+        return checkbox.value;
+    });
+
+
+  
+    const selectedEvents = Array.from(
+        document.querySelectorAll('input[data-group="event"]:checked')
+    ).map(function(checkbox) {
+        return checkbox.value;
+    });
+
+
+    
+    const selectedAccessories = Array.from(
+        document.querySelectorAll('input[data-group="Atype"]:checked')
+    ).map(function(checkbox) {
+        return checkbox.value;
+    });
+
+
+    
+    products.forEach(function(product) {
+
+        const productSeason = product.dataset.season;
+        const productGender = product.dataset.gender;
+        const productColor = product.dataset.color;
+        const productStyle = product.dataset.style;
+        const productEvent = product.dataset.event;
+        const productAccessory = product.dataset.atype;
+
+
+        
+        const matchesSeason =
+            selectedSeason === "All-year" ||
+            productSeason === selectedSeason;
+
+
+        const matchesGender =
+            selectedGenders.length === 0 ||
+            selectedGenders.includes(productGender);
+
+
+        const matchesColor =
+            selectedColors.length === 0 ||
+            selectedColors.includes(productColor);
+
+
+        const matchesStyle =
+            selectedStyles.length === 0 ||
+            selectedStyles.includes(productStyle);
+
+
+        const matchesEvent =
+            selectedEvents.length === 0 ||
+            selectedEvents.includes(productEvent);
+
+
+        const matchesAccessory =
+            selectedAccessories.length === 0 ||
+            selectedAccessories.includes(productAccessory);
+
+
+        
+        if (
+            matchesSeason &&
+            matchesGender &&
+            matchesColor &&
+            matchesStyle &&
+            matchesEvent &&
+            matchesAccessory
+        ) {
+            product.style.display = "block";
+        }
+        else {
+            product.style.display = "none";
+        }
+
+    });
+
+}
+
+const allFilters = document.querySelectorAll(".filter");
+
+allFilters.forEach(function(filter) {
+
+    filter.addEventListener("change", function() {
+        applyFilters();
+    });
+
+});
+
+document.getElementById("winter").addEventListener("click", function(){
+
+    document.body.className = "winter";
+
+    document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "flex";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+    selectedSeason = "Winter";
+
+    applyFilters();
+
+});
+
+document.getElementById("summer").addEventListener("click", function(){
+
+    document.body.className = "summer";
+
+    document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "flex";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+    selectedSeason = "Summer";
+
+    applyFilters();
+
+});
+
+document.getElementById("Autumn").addEventListener("click", function(){
+
+    document.body.className = "autumn";
+
+    document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "flex";
+    document.querySelector(".ilspring").style.display = "none";
+
+    selectedSeason = "Autumn";
+
+    applyFilters();
+
+});
+
+document.getElementById("spring").addEventListener("click", function(){
+
+    document.body.className = "spring";
+
+    document.querySelector(".ilallyear").style.display = "none";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "flex";
+
+    selectedSeason = "Spring";
+
+    applyFilters();
+
+});
+
+
+document.getElementById("All-Year-Round").addEventListener("click", function(){
+
+    document.body.className = "all";
+
+    document.querySelector(".ilallyear").style.display = "flex";
+    document.querySelector(".ilsummer").style.display = "none";
+    document.querySelector(".ilwinter").style.display = "none";
+    document.querySelector(".ilautumn").style.display = "none";
+    document.querySelector(".ilspring").style.display = "none";
+
+    selectedSeason = "All-year";
+
+    applyFilters();
+
+});
+
+
+document.getElementById("sortlow").addEventListener("click", function() {
+    const inside = document.querySelector(".inside");
+
+    const sortedProducts = Array.from(products).sort(function(a, b) {
+        const priceA = parseFloat(a.querySelector(".descrip p:last-child").textContent.replace("$", ""));
+        const priceB = parseFloat(b.querySelector(".descrip p:last-child").textContent.replace("$", ""));
+
+        return priceA - priceB;
+    });
+
+    sortedProducts.forEach(function(product) {
+        inside.appendChild(product);
+    });
+});
+
+
+document.getElementById("sortHigh").addEventListener("click", function() {
+    const inside = document.querySelector(".inside");
+
+    const sortedProducts = Array.from(products).sort(function(a, b) {
+        const priceA = parseFloat(a.querySelector(".descrip p:last-child").textContent.replace("$", ""));
+        const priceB = parseFloat(b.querySelector(".descrip p:last-child").textContent.replace("$", ""));
+
+        return priceB - priceA;
+    });
+
+    sortedProducts.forEach(function(product) {
+        inside.appendChild(product);
+    });
+});
+
+
+document.getElementById("sortza").addEventListener("click", function() {
+    const inside = document.querySelector(".inside");
+
+    const sortedProducts = Array.from(products).sort(function(a, b) {
+        const nameA = a.querySelector(".descrip p").textContent.toLowerCase();
+        const nameB = b.querySelector(".descrip p").textContent.toLowerCase();
+
+        return nameA.localeCompare(nameB);
+    });
+
+    sortedProducts.forEach(function(product) {
+        inside.appendChild(product);
+    });
+});
+
+
+document.getElementById("sortaz").addEventListener("click", function() {
+    const inside = document.querySelector(".inside");
+
+    const sortedProducts = Array.from(products).sort(function(a, b) {
+        const nameA = a.querySelector(".descrip p").textContent.toLowerCase();
+        const nameB = b.querySelector(".descrip p").textContent.toLowerCase();
+
+        return nameB.localeCompare(nameA);
+    });
+
+    sortedProducts.forEach(function(product) {
+        inside.appendChild(product);
+    });
+});
+
+document.getElementById('AboutUs').addEventListener('click', function(){
+          window.location.href = 'about.us.html';
+        });
+    
+
+ document.getElementById('HoToCo').addEventListener('click', function(){
+          window.location.href = 'howtocontact.html';
+        });
+
+
+
+
+
+
+
+
+
+
+let cartItems = [];
+
+const cart = document.getElementById("cart");
+const cartCount = document.getElementById("cartCount");
+const cartPanel = document.getElementById("cartPanel");
+const cartItemsContainer = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
+
+
+products.forEach(function(product) {
+
+    product.addEventListener("click", function() {
+
+        const name = product.querySelector(".descrip p").textContent;
+
+        const priceText = product.querySelector(".descrip p:last-child").textContent;
+
+        const price = parseFloat(priceText.replace("$", ""));
+
+        cartItems.push({
+            name: name,
+            price: price
+        });
+
+        updateCart();
+
+    });
+
+});
+
+
+
+function updateCart() {
+
+    cartItemsContainer.innerHTML = "";
+
+    let total = 0;
+
+    cartItems.forEach(function(item, index) {
+
+        total += item.price;
+
+        const cartItem = document.createElement("div");
+
+        cartItem.className = "cartItem";
+
+        cartItem.innerHTML = `
+            <span>${item.name} - $${item.price.toFixed(2)}</span>
+            <button class="removeItem" data-index="${index}">X</button>
+        `;
+
+        cartItemsContainer.appendChild(cartItem);
+
+    });
+
+
+    cartCount.textContent = cartItems.length;
+
+    cartTotal.textContent = "Total: $" + total.toFixed(2);
+
+
+   
+    const removeButtons = document.querySelectorAll(".removeItem");
+
+    removeButtons.forEach(function(button) {
+
+        button.addEventListener("click", function(event) {
+
+            event.stopPropagation();
+
+            const index = Number(button.dataset.index);
+
+            cartItems.splice(index, 1);
+
+            updateCart();
+
+        });
+
+    });
+
+}
+
+
+
+cart.addEventListener("click", function() {
+
+    if (!isDragging) {
+        cartPanel.style.display = "block";
+    }
+
+});
+
+
+
+document.getElementById("closeCart").addEventListener("click", function() {
+
+    cartPanel.style.display = "none";
+
+});
+
+
+const checkoutTotal = document.getElementById("checkoutTotal");
+
+
+document.getElementById("finishButton").addEventListener("click", function() {
+
+    if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    cartPanel.style.display = "none";
+
+    document.querySelector(".topsection").style.display = "none";
+    document.querySelector(".header").style.display = "none";
+    document.getElementById("cart").style.display = "none";
+
+    const checkoutPage = document.getElementById("checkoutPage");
+
+    checkoutPage.style.display = "block";
+
+    checkoutTotal.textContent = cartTotal.textContent;
+
+});
+
+
+document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Thank you for your order!");
+
+    window.location.href = "Bye.html"
+
+});
+let isDragging = false;
+let offsetX;
+let offsetY;
+
+cart.addEventListener("mousedown", function(event) {
+
+    isDragging = true;
+
+    offsetX = event.clientX - cart.getBoundingClientRect().left;
+    offsetY = event.clientY - cart.getBoundingClientRect().top;
+
+});
+
+document.addEventListener("mousemove", function(event) {
+
+    if (!isDragging) {
+        return;
+    }
+
+    cart.style.left = (event.clientX - offsetX) + "px";
+    cart.style.top = (event.clientY - offsetY) + "px";
+
+    cart.style.right = "auto";
+    cart.style.bottom = "auto";
+
+});
+
+document.addEventListener("mouseup", function() {
+
+    isDragging = false;
+
+});
+</script>
+
+
+
 
 
 </body>
