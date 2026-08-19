@@ -501,7 +501,52 @@ body.spring #cartPanel {
     background-color: #d7f7c4;
 }
 
-#checkoutPage {
+
+body.all .cartItem {
+    background-color: #D8C3A5;
+}
+
+body.winter .cartItem {
+    background-color: #a5d3f0;
+}
+
+body.summer .cartItem {
+    background-color: #FCDB6D;
+}
+
+body.autumn .cartItem {
+    background-color: #EAA271;
+}
+
+body.spring .cartItem {
+    background-color: #F07A72;
+}
+
+body.all #finishButton {
+    background-color: #D8C3A5;
+}
+
+body.winter #finishButton {
+    background-color: #a5d3f0;
+}
+
+body.summer #finishButton {
+    background-color: #FCDB6D;
+}
+
+body.autumn #finishButton{
+    background-color: #EAA271;
+}
+
+body.spring #finishButton {
+    background-color: #F07A72;
+}
+
+
+
+
+
+#checkoutFormBN {
     display: none;
     width: 500px;
     margin: 40px auto;
@@ -512,15 +557,49 @@ body.spring #cartPanel {
     box-sizing: border-box;
 }
 
-#checkoutPage h1 {
+#checkoutFormBN h1 {
     text-align: center;
 }
 
-#checkoutForm {
+#checkoutFormN {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+
+
+
+.ANCF {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ANCF form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ANCF input {
+    height: 35px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
+
+.ANCF button {
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #A8B89A;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
 
 #checkoutForm input {
     height: 35px;
@@ -865,12 +944,12 @@ body.spring #cartPanel {
     <button id="finishButton">Finish</button>
 </div>
 
-<div id="checkoutPage">
+<div id="checkoutFormBN">
 
     <h1>Checkout</h1>
     <p>Please fill out your information below.</p>
 
-    <form id="checkoutForm">
+    <form id="checkoutFormN">
 
         <label for="name">Full Name:</label>
         <input type="text" id="name" required>
@@ -881,17 +960,51 @@ body.spring #cartPanel {
         <label for="address">Address:</label>
         <input type="text" id="address" required>
 
-        <label for="city">City:</label>
-        <input type="text" id="city" required>
-
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" required>
 
         <h3 id="checkoutTotal">Total: $0.00</h3>
 
+        <button type="submit">Next</button>
+
+    </form>
+
+</div>
+<div class="ANCF">
+
+    <h1>Payment Information</h1>
+    <p>Please enter your card information below.</p>
+
+    <form id="checkoutFormAN">
+
+        <label for="CardT">Card Type</label>
+
+        <label>
+            <input type="radio" id="DebitCard" name="CardT" value="Debit Card" required>
+            Debit Card
+        </label>
+
+        <label>
+            <input type="radio" id="CreditCard" name="CardT" value="Credit Card">
+            Credit Card
+        </label>
+
+        <label>
+            <input type="radio" id="VirtualCard" name="CardT" value="Virtual Card">
+            Virtual Card
+        </label>
+
+        <label for="CardNa">Card Name</label>
+        <input type="text" id="CardNa" required>
+
+        <label for="CardNu">Card Number</label>
+        <input type="text" id="CardNu" required>
+
         <button type="submit">Place Order</button>
 
     </form>
+
+</div>
 
 </div>
 
@@ -1295,22 +1408,33 @@ document.getElementById("finishButton").addEventListener("click", function() {
     document.querySelector(".header").style.display = "none";
     document.getElementById("cart").style.display = "none";
 
-    const checkoutPage = document.getElementById("checkoutPage");
-
-    checkoutPage.style.display = "block";
+    
+    document.getElementById("checkoutFormBN").style.display = "block";
 
     checkoutTotal.textContent = cartTotal.textContent;
 
+});;
+
+
+document.getElementById("checkoutFormBN").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    
+    document.getElementById("checkoutFormBN").style.display = "none";
+
+    
+    document.querySelector(".ANCF").style.display = "flex";
+
 });
 
-
-document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+document.getElementById("checkoutFormAN").addEventListener("submit", function(event) {
 
     event.preventDefault();
 
     alert("Thank you for your order!");
 
-    window.location.href = "Bye.html"
+    window.location.href = "Bye.html";
 
 });
 let isDragging = false;
