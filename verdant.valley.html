@@ -120,11 +120,33 @@
         
     }
 
-    .descrip{
-        display: grid;
-        grid-template-columns: repeat(2, 65px);
-        grid-template-rows: repeat(2, 35px);
-    }
+    .descrip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.descrip p {
+    display: none;
+}
+
+.descrip p:first-child,
+.descrip p:last-child {
+    display: block;
+}
+
+.descrip p {
+    margin: 0;
+}
+
+.descrip p:first-child {
+    font-weight: bold;
+}
+
+.descrip p:last-child {
+    font-weight: bold;
+}
 
    
 
@@ -618,6 +640,81 @@ body.spring #finishButton {
     font-size: 16px;
 }
 
+
+
+
+#productPopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+#productBox {
+    width: 600px;
+    min-height: 450px;
+    background-color: #FFF8E7;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+    position: relative;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#productBox img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+#productDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#productDetails h2 {
+    font-size: 30px;
+    margin: 0;
+}
+
+#productDetails p {
+    margin: 3px 0;
+}
+
+#popupPrice {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#addToCartPopup {
+    width: 180px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    background-color: #A8B89A;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#closeProduct {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
 </style>
 <body class="all">
     <div class="header">
@@ -775,24 +872,24 @@ body.spring #finishButton {
         <div class="main-content">
 
             <div class="inside">
-             <label class="item" data-season="Winter"  data-gender="Women's" data-color="Black"  data-style="Outdoor" data-event="Christmas" data-atype="Armwear">
-            <img src="images/chris-black-fem.jpg" width="100px" height="100px">
+             <label class="item" data-season="Winter" data-gender="Women's" data-color="Black" data-style="Outdoor" data-event="Christmas" data-atype="Armwear">
+                <img src="images/chris-black-fem.jpg" width="100px" height="100px">
                 <div class="descrip">
-            <p>Gloves</p>
-            <p>Black</p>
-            <p>Outdoors</p>
-            <p>Christmas</p>
-            <p>Armwear</p>
-            <p>Winter</p>
-            <p>Men's</p>
-            <p>$4</p>
+                <p>Winter Gloves</p>
+                <p>Black</p>
+                <p>Outdoor</p>
+                <p>Christmas</p>
+                <p>Armwear</p>
+                <p>Winter</p>
+                <p>Women's</p>
+                <p>$4</p>
             </div>
              </label>
 
          <label class="item"  data-season="Summer"  data-gender="Women's" data-color="Blue" data-style="Outdoors" data-event="Beach" data-atype="Headwear">
             <img src="images/blue-sum-hat.jpg" width="100px" height="auto">
             <div class="descrip">
-            <p>Hat</p>
+            <p>Summer Hat</p>
             <p>Blue</p>
             <p>Outdoors</p>
             <p>Beach</p>
@@ -806,7 +903,7 @@ body.spring #finishButton {
          <label class="item"   data-season="Winter"   data-gender="Men's" data-color="Black" data-style="Streetwear" data-event="Halloween" data-atype="Jewelry">
             <img src="images/black-necklace-man.jpg" width="100px" height="auto">
             <div class="descrip">
-            <p>Necklace</p>
+            <p>Gemstone Necklace</p>
             <p>Black</p>
             <p>streetwear</p>
             <p>Hallowen</p>
@@ -832,7 +929,7 @@ body.spring #finishButton {
             </div>
         </label>
 
-         <label class="item"  data-gender="All-year" data-color="White" data-style="Streetwear" data-event="Halloween" data-atype="Armwear">
+         <label class="item"  data-season="All-year" data-color="White" data-style="Streetwear" data-event="Halloween" data-atype="Armwear">
             <img src="images/white-unisex.jpg"  width="100px" height="auto">
             <div class=" descrip">
             <p>Glove</p>
@@ -942,6 +1039,37 @@ body.spring #finishButton {
     </div>
 
     <button id="finishButton">Finish</button>
+</div>
+
+<div id="productPopup">
+
+    <div id="productBox">
+
+        <button id="closeProduct">✕</button>
+
+        <img id="popupImage" src="" alt="Product">
+
+        <div id="productDetails">
+
+            <h2 id="popupName"></h2>
+
+            <p id="popupColor"></p>
+            <p id="popupStyle"></p>
+            <p id="popupEvent"></p>
+            <p id="popupType"></p>
+            <p id="popupSeason"></p>
+            <p id="popupGender"></p>
+
+            <p id="popupPrice"></p>
+
+            <button id="addToCartPopup">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
 
 <div id="checkoutFormBN">
@@ -1300,28 +1428,87 @@ const cartTotal = document.getElementById("cartTotal");
 
 
 
-products.forEach(function(product) {
 
-    product.addEventListener("click", function() {
 
-        const name = product.querySelector(".descrip p").textContent;
 
-        const priceText = product.querySelector(".descrip p:last-child").textContent;
+const productPopup = document.getElementById("productPopup");
 
-        const price = parseFloat(priceText.replace("$", ""));
+const popupImage = document.getElementById("popupImage");
+const popupName = document.getElementById("popupName");
+const popupColor = document.getElementById("popupColor");
+const popupStyle = document.getElementById("popupStyle");
+const popupEvent = document.getElementById("popupEvent");
+const popupType = document.getElementById("popupType");
+const popupSeason = document.getElementById("popupSeason");
+const popupGender = document.getElementById("popupGender");
+const popupPrice = document.getElementById("popupPrice");
 
-        cartItems.push({
-            name: name,
-            price: price
-        });
+let selectedProduct = null;
 
-        updateCart();
+document.getElementById("addToCartPopup").addEventListener("click", function() {
 
+    if (!selectedProduct) {
+        return;
+    }
+
+    const name = selectedProduct.querySelector(".descrip p").textContent;
+
+    const priceText = selectedProduct.querySelector(".descrip p:last-child").textContent;
+
+    const price = parseFloat(priceText.replace("$", ""));
+
+    cartItems.push({
+        name: name,
+        price: price
     });
+
+    updateCart();
+
+    productPopup.style.display = "none";
+
+});
+
+document.getElementById("closeProduct").addEventListener("click", function() {
+
+    productPopup.style.display = "none";
+
+});
+
+productPopup.addEventListener("click", function(event) {
+
+    if (event.target === productPopup) {
+        productPopup.style.display = "none";
+    }
 
 });
 
 
+products.forEach(function(product) {
+
+    product.addEventListener("click", function() {
+
+        selectedProduct = product;
+
+        const image = product.querySelector("img");
+
+        const details = product.querySelectorAll(".descrip p");
+
+        popupImage.src = image.src;
+
+        popupName.textContent = details[0].textContent;
+        popupColor.textContent = "Color: " + details[1].textContent;
+        popupStyle.textContent = "Style: " + details[2].textContent;
+        popupEvent.textContent = "Event: " + details[3].textContent;
+        popupType.textContent = "Accessory Type: " + details[4].textContent;
+        popupSeason.textContent = "Season: " + details[5].textContent;
+        popupGender.textContent = "Gender: " + details[6].textContent;
+        popupPrice.textContent = details[7].textContent;
+
+        productPopup.style.display = "flex";
+
+    });
+
+});
 
 function updateCart() {
 
