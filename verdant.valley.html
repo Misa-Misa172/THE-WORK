@@ -102,23 +102,36 @@
         gap: 20px;
     }
 
-    .main-content{
-       
-        height: 700px;
-        background-image: url(images/mc-all.jpg);
-        background-size:cover;
-        display: flex;
-        justify-content: center;
-        border-radius: 10px;
-        
-    }
+    .main-content {
+    height: 700px;
+    background-image: url(images/mc-all.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
 
-    .inside{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-        
-    }
+    .inside {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    width: 100%;
+    justify-items: center;
+    align-items: start;
+}
+
+.item {
+    width: 150px;
+    text-align: center;
+}
+
+.item img {
+    display: block;
+    margin: 0 auto;
+}
 
     .descrip {
     display: flex;
