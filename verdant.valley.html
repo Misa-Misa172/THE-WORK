@@ -138,6 +138,7 @@
     flex-direction: column;
     align-items: center;
     gap: 3px;
+    background-color: white;
 }
 
 .descrip p {
@@ -174,27 +175,43 @@
       display: flex;
       background-image:url(images/il-all.jpg);
       color: #f6ffe5;
+      span{
+        background-color: #00000088;
+      }
     }
 
     .ilsummer {
         display: none;
         background-image: url(images/ilsum.jpg);
+        span{
+        background-color: #ffcc2348;
+      }
     }
 
     .ilwinter {
         display: none;
         background-image: url(images/wint-back.jpg);
         color: #f3f4f5;
+        span{
+        background-color: #061a2da2;
+      }
     }
 
     .ilspring{
         display: none;
         background-image: url(images/Spring\ background.png);
+        span{
+        background-color: #a5e75488;
+      }
+
     }
 
     .ilautumn{
         display: none;
         background-image: url(images/fall\ background.png);
+        span{
+        background-color: #ffb92348;
+      }
     }
 
 
@@ -860,27 +877,27 @@ body.spring #finishButton {
     <div class="rightside">
 
         <div class="imageandlogo ilallyear">
-            All-Year-Round
+           <span>All-Year-Round</span>
             
         </div>
 
         <div class="imageandlogo ilsummer">
-            Summer
+           <span> Summer</span>
             
         </div>
 
         <div class="imageandlogo ilwinter">
-           Winter
+          <span>Winter</span>
             
         </div>
 
         <div class="imageandlogo ilautumn">
-            Autumn
+            <span>Autumn</span>
             
         </div>
 
         <div class="imageandlogo ilspring">
-            Spring
+            <span>Spring</span>
             
         </div>
 
@@ -1132,9 +1149,10 @@ body.spring #finishButton {
             Credit Card
         </label>
 
-        <label>
+        <label for="VirtualCard">
             <input type="radio" id="VirtualCard" name="CardT" value="Virtual Card">
             Virtual Card
+            
         </label>
 
         <label for="CardNa">Card Name</label>
@@ -1142,6 +1160,13 @@ body.spring #finishButton {
 
         <label for="CardNu">Card Number</label>
         <input type="text" id="CardNu" required>
+
+        <label for="Expire">Expiration Date</label>
+        <input type="text" id="Expire" required>
+
+
+        <label for="Cvv">CVV Code</label>
+        <input type="text" id="Cvv" required>
 
         <button type="submit">Place Order</button>
 
